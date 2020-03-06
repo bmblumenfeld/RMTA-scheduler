@@ -1,5 +1,5 @@
 import React from "react";
-import BusList from "./busList";
+import BusList from "./BusList";
 import { APP_MARGIN } from "../constants";
 
 // const TimeBanner = () => {

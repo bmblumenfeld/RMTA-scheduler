@@ -24,7 +24,8 @@ export const TRIP_DATA = generateDefaultBusAssignmentToTrips(
 
 export const COLORS = {
   gray100: "#f6f8fa",
-  gray200: "#e1e4e8"
+  gray200: "#e1e4e8",
+  white: "white"
 };
 
 export const APP_MARGIN = 75;
