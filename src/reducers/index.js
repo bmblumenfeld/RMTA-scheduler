@@ -39,6 +39,7 @@ const tripsReducer = (trips = TRIP_DATA, action) => {
       const tripIdToMove = action.payload.tripId;
       const movedTrips = moveTripsCopy.filter(trip => {
         if (trip.id === tripIdToMove) {
+          console.log("weee made ite");
           trip.busId = busIdToMoveTo;
           return trip;
         }

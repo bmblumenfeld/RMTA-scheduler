@@ -18,7 +18,13 @@ const Trip = props => {
   const tripPosition = calculateTripPosition(startTime);
   const tripColor =
     selectedTrip && trip.id === selectedTrip.id ? COLORS.gray200 : COLORS.white;
-  console.log(selectedTrip);
+
+  const triggerSelectTrip = e => {
+    e.cancelBubble = true;
+    if (e.stopPropagation) e.stopPropagation();
+    selectTrip(trip);
+  };
+
   return (
     <div
       style={{
@@ -27,9 +33,7 @@ const Trip = props => {
         left: tripPosition,
         background: tripColor
       }}
-      onClick={() => {
-        selectTrip(trip);
-      }}
+      onClick={triggerSelectTrip}
       key={key}
     >
       {trip.id}

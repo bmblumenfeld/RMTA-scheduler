@@ -19,8 +19,6 @@ const BusList = props => {
   //   return <div></div>;
   // };
 
-  console.log(props);
-
   return (
     <div>
       {busses.map((bus, index) => {
