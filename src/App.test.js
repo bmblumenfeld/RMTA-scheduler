@@ -1,6 +1,6 @@
 import React from "react";
-import { render } from "@testing-library/react";
 import { TRIP_DATA } from "./constants";
+import { checkTripConflict } from "./components/Bus";
 
 describe("Data Generator", () => {
   const trips = TRIP_DATA;
@@ -13,8 +13,18 @@ describe("Data Generator", () => {
   });
 });
 
-describe("Trip", () => {
-  it("handle positioning", () => {
-    //TODO: test positioning
+describe("Bus", () => {
+  it("Handles trip conflict checking", () => {
+    const mockTrips = [
+      { startTime: 100, endTime: 200 },
+      { startTime: 400, endTime: 600 }
+    ];
+    const tripWithStartConflict = { startTime: 150, endTime: 300 };
+    const tripWithEndConflict = { startTime: 300, endTime: 500 };
+    const tripWithNoConflict = { startTime: 700, endTime: 800 };
+
+    expect(checkTripConflict(mockTrips, tripWithStartConflict)).toBe(true);
+    expect(checkTripConflict(mockTrips, tripWithEndConflict)).toBe(true);
+    expect(checkTripConflict(mockTrips, tripWithNoConflict)).toBe(false);
   });
 });

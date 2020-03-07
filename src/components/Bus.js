@@ -52,7 +52,8 @@ const checkHasEndConflict = (movingTrip, currentTrip) => {
   );
 };
 
-const checkTripConflict = (trips, movingTrip) => {
+// named export for testing
+export const checkTripConflict = (trips, movingTrip) => {
   for (let i = 0; i < trips.length; i++) {
     const trip = trips[i];
     if (
