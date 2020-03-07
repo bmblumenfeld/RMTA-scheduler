@@ -139,7 +139,7 @@ const Bus = props => {
   };
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className={"gray-busses"}>
       {renderTitleColumn()}
       {renderTrips()}
     </div>
