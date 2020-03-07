@@ -16,7 +16,6 @@ const calculateTimeTripRange = trip => {
 const calculateTotalTripTime = trip => {
   const { startTime, endTime } = trip;
   const duration = endTime - startTime;
-  console.log(duration);
   const durationHours = Math.floor(duration / 60);
   const durationMins = duration % 60;
   return `${durationHours}:${durationMins}`;
