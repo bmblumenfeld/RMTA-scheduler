@@ -12,9 +12,9 @@ import {
   TITLE_COLUMN_WIDTH,
   BUS_TITLE_SIZE
 } from "../constants";
-import SchedulingStatus from "./SchedulingStatus";
 
 const getBusTripList = (busId, trips) => {
+  //trips sheduled for a bus
   return trips.filter(trip => {
     if (trip.busId === busId) {
       return trip;
@@ -46,6 +46,7 @@ const BusList = props => {
   };
 
   const renderBusAdder = () => {
+    //TODO: generalize Bus logic to render addBus row
     if (!selectedTrip) return null;
     return (
       <div style={styles.addContainer}>

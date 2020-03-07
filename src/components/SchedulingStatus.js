@@ -1,9 +1,6 @@
 import React, { Fragment } from "react";
-import { generateBus } from "../utils";
 import { connect } from "react-redux";
-import { addBus, removeBus } from "../actions";
-import Bus from "./Bus";
-import { SCHEDULE_WIDTH, BUS_HEIGHT, COLORS, APP_MARGIN } from "../constants";
+import { COLORS, APP_MARGIN } from "../constants";
 
 const SCHEDULING_STATUS_WIDTH = "300px";
 

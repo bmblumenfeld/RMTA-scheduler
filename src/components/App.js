@@ -1,12 +1,6 @@
 import React from "react";
 import BusList from "./BusList";
-import {
-  APP_MARGIN,
-  SCHEDULE_WIDTH,
-  TITLE_COLUMN_WIDTH,
-  COLORS,
-  TIME_MAP
-} from "../constants";
+import { APP_MARGIN, SCHEDULE_WIDTH, TITLE_COLUMN_WIDTH } from "../constants";
 import SchedulingStatus from "./SchedulingStatus";
 import { ToastProvider } from "react-toast-notifications";
 

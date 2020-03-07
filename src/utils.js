@@ -8,6 +8,8 @@ export const generateBus = () => {
 };
 
 export const generateDefaultBusses = trips => {
+  //Generates a new bus for each trip
+  //if bus model needs to be extended further todo: create a Bus class
   const busses = [];
   for (let i = 0; i < trips.length; i++) {
     const newBus = generateBus();
@@ -17,6 +19,8 @@ export const generateDefaultBusses = trips => {
 };
 
 export const generateDefaultBusAssignmentToTrips = (busses, trips) => {
+  //Generates a list of trips based on input and extends model with a one to many bus to trips
+  //if bus model needs to be extended further todo: create a Trip class
   const tripsCopy = JSON.parse(JSON.stringify(trips));
   const mappedTrips = [];
   for (let i = 0; i < tripsCopy.length; i++) {

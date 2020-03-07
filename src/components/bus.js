@@ -65,13 +65,12 @@ const checkTripConflict = (trips, movingTrip) => {
 };
 
 const Bus = props => {
-  const { busId, trips, key, selectedTrip, moveTrip, busIndex, isGray } = props;
+  const { busId, trips, key, selectedTrip, moveTrip, busIndex } = props;
   const { addToast } = useToasts();
   const cursor = selectedTrip ? "crosshair" : "pointer";
-  const backgroundColor = isGray ? COLORS.gray100 : COLORS.white;
 
   const triggerToast = selectedTrip => {
-    const conflictMessage = `Trip of ID:${selectedTrip.id} has a time conflict with another scheduled trip for that bus`;
+    const conflictMessage = `Time Conflict for Trip of ID:${selectedTrip.id} with another scheduled trip for that bus.`;
     addToast(conflictMessage, {
       appearance: "error",
       autoDismiss: true,
@@ -125,7 +124,6 @@ const Bus = props => {
       <div
         style={{
           ...styles.busContainer,
-          background: backgroundColor,
           cursor: cursor
         }}
         key={key}
@@ -139,7 +137,7 @@ const Bus = props => {
   };
 
   return (
-    <div style={styles.container} className={"gray-busses"}>
+    <div style={styles.container} className={"zebra"}>
       {renderTitleColumn()}
       {renderTrips()}
     </div>
