@@ -31,6 +31,7 @@ export const COLORS = {
 };
 
 export const SCHEDULE_WIDTH = "1080px";
+export const SCHEDULE_NUM = 1080;
 export const BUS_HEIGHT = "40px";
 export const TITLE_COLUMN_WIDTH = 180;
 export const BUS_TITLE_SIZE = "20px";

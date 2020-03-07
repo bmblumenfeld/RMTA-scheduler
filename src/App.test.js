@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { TRIP_DATA } from "./constants";
-// import {Bus} from './components/Bus.js
 
 describe("Data Generator", () => {
   const trips = TRIP_DATA;
@@ -14,8 +13,8 @@ describe("Data Generator", () => {
   });
 });
 
-// describe("Data Generator", () => {
-//   it("Should return list of trips with buses", () => {
-
-//   })
-// });
+describe("Trip", () => {
+  it("handle positioning", () => {
+    //TODO: test positioning
+  });
+});

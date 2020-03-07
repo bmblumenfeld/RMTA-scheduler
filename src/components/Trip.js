@@ -4,13 +4,17 @@ import { selectTrip } from "../actions";
 import { connect } from "react-redux";
 
 const calculateTripSize = (startTime, endTime) => {
-  //I am choosing to have each minute be 2 px
+  //Each minute = 2 px
   const tripDuration = endTime - startTime;
   return `${tripDuration * 2}px`;
 };
 
-const calculateTripPosition = startTime =>
-  `${APP_MARGIN + TITLE_COLUMN_WIDTH + startTime * 2}px`;
+const calculateTripPosition = startTime => {
+  //Returns left value relative to window width
+  //TODO: make it only relative to the schedule width and not app
+  const leftValue = `${APP_MARGIN + TITLE_COLUMN_WIDTH + startTime * 2}px`;
+  return leftValue;
+};
 
 const Trip = props => {
   const { trip, key, selectTrip, selectedTrip } = props;

@@ -6,7 +6,8 @@ import {
   SCHEDULE_WIDTH,
   BUS_HEIGHT,
   TITLE_COLUMN_WIDTH,
-  BUS_TITLE_SIZE
+  BUS_TITLE_SIZE,
+  SCHEDULE_NUM
 } from "../constants";
 import Trip from "./Trip";
 import { moveTrip } from "../actions";
@@ -151,7 +152,8 @@ const mapStateToProps = state => {
 const styles = {
   container: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    width: `${SCHEDULE_NUM + TITLE_COLUMN_WIDTH}px`
   },
   busContainer: {
     display: "flex",
