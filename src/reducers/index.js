@@ -1,5 +1,4 @@
 import produce from "immer";
-import _ from "lodash";
 import { actionTypes } from "../actions";
 import { combineReducers } from "redux";
 import { TRIP_DATA, DEFAULT_BUSSES } from "../constants";
@@ -7,12 +6,13 @@ import { TRIP_DATA, DEFAULT_BUSSES } from "../constants";
 const busReducer = (busses = DEFAULT_BUSSES, action) => {
   switch (action.type) {
     case actionTypes.addBus:
+      const bussesCopy = JSON.parse(JSON.stringify(busses));
       const newBus = action.payload.newBus;
-      const addedBusList = [...busses, newBus];
+      const addedBusList = [...bussesCopy, newBus];
       return produce(addedBusList, original => original);
     case actionTypes.removeBus:
-      const removedBusList = _.remove(busses, bus => {
-        return action.payload.busId === bus.id;
+      const removedBusList = busses.filter(bus => {
+        if (action.payload.busId !== bus.id) return bus;
       });
       return produce(removedBusList, original => original);
     default:
@@ -39,7 +39,6 @@ const tripsReducer = (trips = TRIP_DATA, action) => {
       const tripIdToMove = action.payload.tripId;
       const movedTrips = moveTripsCopy.filter(trip => {
         if (trip.id === tripIdToMove) {
-          console.log("weee made ite");
           trip.busId = busIdToMoveTo;
           return trip;
         }
@@ -59,6 +58,10 @@ const selectedReducer = (selected = null, action) => {
         return null;
       }
       return selectedTrip;
+    case actionTypes.moveTrip:
+      return null;
+    case actionTypes.addBus:
+      return null;
     default:
       return selected;
   }

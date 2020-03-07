@@ -1,12 +1,17 @@
 import produce from "immer";
 import { v4 as uuidv4 } from "uuid";
 
+export const generateBus = () => {
+  const busId = uuidv4();
+  const bus = { id: busId };
+  return bus;
+};
+
 export const generateDefaultBusses = trips => {
   const busses = [];
   for (let i = 0; i < trips.length; i++) {
-    const busId = uuidv4();
-    const bus = { id: busId };
-    busses.push(bus);
+    const newBus = generateBus();
+    busses.push(newBus);
   }
   return produce(busses, original => original);
 };

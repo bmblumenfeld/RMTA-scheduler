@@ -1,5 +1,5 @@
 import React from "react";
-import { COLORS, APP_MARGIN } from "../constants";
+import { COLORS, APP_MARGIN, TITLE_COLUMN_WIDTH } from "../constants";
 import { selectTrip } from "../actions";
 import { connect } from "react-redux";
 
@@ -9,7 +9,8 @@ const calculateTripSize = (startTime, endTime) => {
   return `${tripDuration * 2}px`;
 };
 
-const calculateTripPosition = startTime => `${APP_MARGIN + startTime * 2}px`;
+const calculateTripPosition = startTime =>
+  `${APP_MARGIN + TITLE_COLUMN_WIDTH + startTime * 2}px`;
 
 const Trip = props => {
   const { trip, key, selectTrip, selectedTrip } = props;
@@ -56,6 +57,7 @@ const styles = {
     justifyContent: "center",
     border: "1px",
     borderStyle: "solid",
-    borderColor: COLORS.gray200
+    borderColor: COLORS.gray200,
+    cursor: "crosshair"
   }
 };

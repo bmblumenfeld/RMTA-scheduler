@@ -14,7 +14,7 @@ export const moveTrip = (newBusId, tripId) => {
 
 export const addBus = (newBus, tripId) => {
   return {
-    type: actionTypes.moveTrip,
+    type: actionTypes.addBus,
     payload: { newBus, tripId }
   };
 };
@@ -22,7 +22,7 @@ export const addBus = (newBus, tripId) => {
 export const removeBus = busId => {
   return {
     type: actionTypes.removeBus,
-    payload: busId
+    payload: { busId }
   };
 };
 

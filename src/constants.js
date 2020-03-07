@@ -23,9 +23,16 @@ export const TRIP_DATA = generateDefaultBusAssignmentToTrips(
 );
 
 export const COLORS = {
+  blue300: "#79b8ff",
   gray100: "#f6f8fa",
   gray200: "#e1e4e8",
+  gray400: "#959da5",
   white: "white"
 };
 
-export const APP_MARGIN = 75;
+export const SCHEDULE_WIDTH = "1080px";
+export const BUS_HEIGHT = "40px";
+export const TITLE_COLUMN_WIDTH = 180;
+export const BUS_TITLE_SIZE = "20px";
+
+export const APP_MARGIN = 150;
