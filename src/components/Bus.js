@@ -38,6 +38,13 @@ const calculateMaxTripEnd = trips => {
   return `${hours}:${minutes}`;
 };
 
+const checkWithinConflict = (movingTrip, currentTrip) => {
+  return (
+    movingTrip.startTime >= currentTrip.startTime &&
+    movingTrip.endTime <= currentTrip.endTime
+  );
+};
+
 const checkHasStartConflict = (movingTrip, currentTrip) => {
   return (
     movingTrip.startTime <= currentTrip.startTime &&
@@ -58,7 +65,8 @@ export const checkTripConflict = (trips, movingTrip) => {
     const trip = trips[i];
     if (
       checkHasStartConflict(movingTrip, trip) ||
-      checkHasEndConflict(movingTrip, trip)
+      checkHasEndConflict(movingTrip, trip) ||
+      checkWithinConflict(movingTrip, trip)
     ) {
       return true;
     }

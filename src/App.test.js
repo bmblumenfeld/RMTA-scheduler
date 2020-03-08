@@ -21,10 +21,12 @@ describe("Bus", () => {
     ];
     const tripWithStartConflict = { startTime: 150, endTime: 300 };
     const tripWithEndConflict = { startTime: 300, endTime: 500 };
+    const tripWithWithinConflict = { startTime: 410, endTime: 550 };
     const tripWithNoConflict = { startTime: 700, endTime: 800 };
 
     expect(checkTripConflict(mockTrips, tripWithStartConflict)).toBe(true);
     expect(checkTripConflict(mockTrips, tripWithEndConflict)).toBe(true);
+    expect(checkTripConflict(mockTrips, tripWithWithinConflict)).toBe(true);
     expect(checkTripConflict(mockTrips, tripWithNoConflict)).toBe(false);
   });
 });
